@@ -1,0 +1,13 @@
+{
+  "title": "OwnaFarm Documentation",
+  "description": "Gamified Invoice Financing for Agriculture",
+  "plugins": ["mermaid-gb3"],
+  "pluginsConfig": {
+    "mermaid-gb3": {}
+  },
+  "structure": {
+    "readme": "README.md",
+    "summary": "SUMMARY.md"
+  },
+  "language": "en"
+}
