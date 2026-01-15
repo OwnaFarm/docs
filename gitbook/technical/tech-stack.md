@@ -1,144 +1,129 @@
 # Tech Stack
 
-## Complete Technology Overview
-
-OwnaFarm is built with modern, production-ready technologies across all layers.
+## Technology Overview
 
 ---
 
-## Architecture Summary
+## Architecture
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                        FRONTEND LAYER                           │
-├────────────────────────────┬────────────────────────────────────┤
-│      Farmer Portal         │          Investor App             │
-│      (Next.js 16)          │          (Next.js 16)             │
-│      Tailwind CSS          │          Tailwind CSS             │
-│      WAGMI + Privy         │          WAGMI                    │
-│      Zustand               │          Framer Motion            │
-└────────────────────────────┴────────────────────────────────────┘
-                                    │
-                                    ▼
-┌─────────────────────────────────────────────────────────────────┐
-│                        BACKEND LAYER                            │
-├─────────────────────────────────────────────────────────────────┤
-│                       Go + Gin Framework                        │
-│                       GORM (PostgreSQL)                         │
-│                       Valkey (Redis-compatible)                 │
-│                       go-ethereum                               │
-│                       Cloudflare R2                             │
-└─────────────────────────────────────────────────────────────────┘
-                                    │
-                                    ▼
-┌─────────────────────────────────────────────────────────────────┐
-│                      BLOCKCHAIN LAYER                           │
-├─────────────────────────────────────────────────────────────────┤
-│                    Foundry + Solidity                           │
-│                    Mantle Sepolia (L2)                          │
-│                    ERC-20 + ERC-1155                            │
-└─────────────────────────────────────────────────────────────────┘
+```mermaid
+graph TB
+    subgraph Frontend
+        FE[Next.js 16 + TypeScript]
+        UI[Tailwind + Framer Motion]
+        WEB3[WAGMI + Viem]
+    end
+
+    subgraph Backend
+        BE[Go + Gin]
+        ORM[GORM + PostgreSQL]
+        CACHE[Valkey]
+        STORE[Cloudflare R2]
+    end
+
+    subgraph Blockchain
+        SC[Solidity + Foundry]
+        MNT[Mantle L2]
+    end
+
+    FE --> BE
+    FE --> MNT
+    BE --> MNT
 ```
 
 ---
 
-## Frontend Technologies
+## Frontend
 
-### Core Framework
+### Core
 
-| Technology     | Version | Purpose                         |
-| -------------- | ------- | ------------------------------- |
-| **Next.js**    | 16.x    | React framework with App Router |
-| **React**      | 19.x    | UI component library            |
-| **TypeScript** | 5.x     | Type-safe JavaScript            |
+| Technology | Version | Purpose         |
+| ---------- | ------- | --------------- |
+| Next.js    | 16.x    | React framework |
+| React      | 19.x    | UI library      |
+| TypeScript | 5.x     | Type safety     |
 
 ### Styling
 
-| Technology        | Purpose                         |
-| ----------------- | ------------------------------- |
-| **Tailwind CSS**  | Utility-first CSS framework     |
-| **Radix UI**      | Accessible component primitives |
-| **Framer Motion** | Animations and transitions      |
-| **Lucide React**  | Icon library                    |
+| Technology    | Purpose               |
+| ------------- | --------------------- |
+| Tailwind CSS  | Utility-first CSS     |
+| Radix UI      | Accessible components |
+| Framer Motion | Animations            |
+| Lucide React  | Icons                 |
 
-### Web3 Integration
+### Web3
 
-| Technology         | Purpose                          |
-| ------------------ | -------------------------------- |
-| **WAGMI**          | React hooks for Ethereum         |
-| **Viem**           | TypeScript Ethereum client       |
-| **Privy**          | Social login + wallet connection |
-| **TanStack Query** | Data fetching and caching        |
+| Technology     | Purpose                    |
+| -------------- | -------------------------- |
+| WAGMI          | React Ethereum hooks       |
+| Viem           | TypeScript Ethereum client |
+| Privy          | Social login + wallet      |
+| TanStack Query | Data fetching              |
 
-### State Management
+### State
 
-| Technology          | Purpose                      |
-| ------------------- | ---------------------------- |
-| **Zustand**         | Lightweight state management |
-| **React Hook Form** | Form handling                |
-| **Zod**             | Schema validation            |
-
----
-
-## Backend Technologies
-
-### Core Stack
-
-| Technology | Version | Purpose            |
-| ---------- | ------- | ------------------ |
-| **Go**     | 1.22+   | Backend language   |
-| **Gin**    | 1.x     | HTTP web framework |
-| **GORM**   | 2.x     | ORM for database   |
-
-### Databases & Caching
-
-| Technology     | Purpose                                      |
-| -------------- | -------------------------------------------- |
-| **PostgreSQL** | Primary relational database                  |
-| **Valkey**     | Caching and session store (Redis-compatible) |
-
-### Blockchain Integration
-
-| Technology       | Purpose                 |
-| ---------------- | ----------------------- |
-| **go-ethereum**  | Ethereum client library |
-| **ABI Bindings** | Contract interaction    |
-
-### Storage & Services
-
-| Technology        | Purpose                      |
-| ----------------- | ---------------------------- |
-| **Cloudflare R2** | Object storage for documents |
-| **S3 SDK**        | R2 API compatibility         |
+| Technology      | Purpose           |
+| --------------- | ----------------- |
+| Zustand         | State management  |
+| React Hook Form | Form handling     |
+| Zod             | Schema validation |
 
 ---
 
-## Smart Contract Technologies
+## Backend
+
+### Core
+
+| Technology | Version | Purpose        |
+| ---------- | ------- | -------------- |
+| Go         | 1.22+   | Language       |
+| Gin        | 1.x     | HTTP framework |
+| GORM       | 2.x     | ORM            |
+
+### Data
+
+| Technology    | Purpose           |
+| ------------- | ----------------- |
+| PostgreSQL    | Primary database  |
+| Valkey        | Caching, sessions |
+| Cloudflare R2 | Object storage    |
+
+### Blockchain
+
+| Technology   | Purpose              |
+| ------------ | -------------------- |
+| go-ethereum  | Ethereum client      |
+| ABI Bindings | Contract interaction |
+
+---
+
+## Blockchain
 
 ### Development
 
-| Technology       | Purpose                     |
-| ---------------- | --------------------------- |
-| **Foundry**      | Development framework       |
-| **Solidity**     | Contract language (^0.8.20) |
-| **OpenZeppelin** | Audited contract libraries  |
+| Technology   | Purpose                     |
+| ------------ | --------------------------- |
+| Foundry      | Development framework       |
+| Solidity     | Contract language (^0.8.24) |
+| OpenZeppelin | Audited libraries           |
 
 ### Standards
 
-| Standard          | Implementation         |
-| ----------------- | ---------------------- |
-| **ERC-20**        | GoldToken              |
-| **ERC-1155**      | OwnaFarmNFT            |
-| **AccessControl** | Role-based permissions |
+| Standard      | Implementation   |
+| ------------- | ---------------- |
+| ERC-20        | GoldToken        |
+| ERC-1155      | OwnaFarmNFT      |
+| AccessControl | Role permissions |
 
 ### Network
 
-| Property         | Value                  |
-| ---------------- | ---------------------- |
-| **Network**      | Mantle Sepolia         |
-| **Type**         | L2 (Optimistic Rollup) |
-| **Chain ID**     | 5003                   |
-| **Native Token** | MNT                    |
+| Property     | Value                |
+| ------------ | -------------------- |
+| Network      | Mantle Sepolia       |
+| Type         | L2 Optimistic Rollup |
+| Chain ID     | 5003                 |
+| Native Token | MNT                  |
 
 ---
 
@@ -147,51 +132,32 @@ OwnaFarm is built with modern, production-ready technologies across all layers.
 ### Frontend
 
 ```bash
-# Package Manager
-pnpm
-
-# Build Tools
-next build
-turbopack (dev mode)
-
-# Linting
-eslint
+pnpm              # Package manager
+next build        # Production build
+turbopack         # Dev server
+eslint            # Linting
 ```
 
 ### Backend
 
 ```bash
-# Build
-go build
-
-# Testing
-go test
-
-# Hot Reload
-air
+go build          # Compile
+go test           # Testing
+air               # Hot reload
 ```
 
-### Smart Contracts
+### Contracts
 
 ```bash
-# Build
-forge build
-
-# Test
-forge test
-
-# Deploy
-forge script
-
-# Verify
-forge verify-contract
+forge build       # Compile
+forge test        # Testing
+forge script      # Deploy
+forge verify-contract  # Verify
 ```
 
 ---
 
 ## Infrastructure
-
-### Deployment
 
 | Layer    | Platform             |
 | -------- | -------------------- |
@@ -200,25 +166,17 @@ forge verify-contract
 | Database | Cloud SQL / Supabase |
 | Storage  | Cloudflare R2        |
 
-### Monitoring
+---
 
-| Tool             | Purpose             |
-| ---------------- | ------------------- |
-| Vercel Analytics | Frontend metrics    |
-| Prometheus       | Backend metrics     |
-| Mantle Explorer  | On-chain monitoring |
+## Security
+
+| Layer     | Measures                      |
+| --------- | ----------------------------- |
+| Frontend  | CSP headers, input validation |
+| Backend   | JWT auth, rate limiting, CORS |
+| Contracts | OpenZeppelin, access control  |
+| Infra     | SSL/TLS, secrets management   |
 
 ---
 
-## Security Considerations
-
-| Layer               | Measures                          |
-| ------------------- | --------------------------------- |
-| **Frontend**        | CSP headers, input validation     |
-| **Backend**         | JWT auth, rate limiting, CORS     |
-| **Smart Contracts** | OpenZeppelin libs, access control |
-| **Infrastructure**  | SSL/TLS, secrets management       |
-
----
-
-## Next: [System Flow →](system-flow.md)
+[Next: System Flow](system-flow.md)

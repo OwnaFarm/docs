@@ -1,76 +1,55 @@
-# The Problem We Solve
+# Problem Statement
 
 ## The Agricultural Financing Gap
 
-Agriculture is the backbone of many economies, yet **farmers face a critical challenge**: access to working capital.
+Farmers with valid contracts from reputable buyers often cannot access working capital in time to execute those contracts.
 
 ---
 
-## The Farmer's Dilemma
+## Farmer Challenges
 
-```
-📋 Contract Signed          ❌ No Capital          🚫 Can't Execute
-   (Payment in 90 days)  →     (For operations)  →    (Lost opportunity)
-```
+| Situation                  | Reality                                 |
+| -------------------------- | --------------------------------------- |
+| Has contract worth $10,000 | Payment due in 90 days                  |
+| Needs capital now          | For seeds, fertilizer, labor            |
+| Banks require collateral   | Smallholders lack acceptable collateral |
+| Alternative lenders        | Charge 30-50% interest                  |
 
-### Real-World Scenario
-
-A farmer secures a contract with a major buyer (offtaker) like a food manufacturer:
-
-| What They Have               | What They Need                       | The Gap                       |
-| ---------------------------- | ------------------------------------ | ----------------------------- |
-| Guaranteed purchase contract | $10,000 for seeds, fertilizer, labor | Banks won't lend              |
-| Invoice payable in 90 days   | Capital TODAY                        | No collateral accepted        |
-| Proven track record          | Quick, affordable financing          | Traditional loans take months |
-
-### Why Traditional Solutions Fail
-
-| Solution             | Problem                                                         |
-| -------------------- | --------------------------------------------------------------- |
-| **Banks**            | Complex paperwork, long approval times, collateral requirements |
-| **Microfinance**     | Interest rates of 20-50% annually                               |
-| **Loan Sharks**      | Predatory rates, coercive collection practices                  |
-| **Personal Savings** | Limits farm scale and growth                                    |
+**Result:** Lost opportunities, limited growth, cycle of poverty.
 
 ---
 
-## The Investor's Challenge
+## Investor Challenges
 
-On the other side, **retail investors** face their own barriers:
-
-### Investment Complexity
-
-| Challenge                        | Impact                                       |
-| -------------------------------- | -------------------------------------------- |
-| **DeFi is intimidating**         | Wallets, gas fees, slippage—too technical    |
-| **RWA platforms are opaque**     | Hard to verify what you're investing in      |
-| **Minimum investments are high** | Traditional invoice financing requires $50K+ |
-| **No engagement**                | Lock money and forget—boring experience      |
+| Barrier         | Impact                                       |
+| --------------- | -------------------------------------------- |
+| DeFi complexity | Wallets, gas, slippage are intimidating      |
+| RWA opacity     | Hard to verify underlying assets             |
+| High minimums   | Traditional invoice financing requires $50K+ |
+| No engagement   | Lock and forget experience                   |
 
 ---
 
 ## The Trust Deficit
 
-Both parties suffer from a **lack of trust and transparency**:
+Both parties face verification problems:
 
-- **Investors** can't verify if the invoice is real
-- **Farmers** can't prove their credibility easily
-- **Intermediaries** take large fees for connecting them
-- **No visibility** into how funds are used
+- Investors cannot easily verify invoice authenticity
+- Farmers cannot prove creditworthiness without traditional credit history
+- Intermediaries extract large fees
+- No visibility into fund utilization
 
 ---
 
 ## Market Opportunity
 
-| Metric                          | Value                               |
-| ------------------------------- | ----------------------------------- |
-| Global Invoice Financing Market | $3+ Trillion                        |
-| Agricultural Finance Gap        | $170 Billion (developing countries) |
-| Smallholder Farmers Worldwide   | 500+ Million                        |
-| Unbanked/Underbanked Adults     | 1.4 Billion                         |
-
-**The opportunity is massive. The problem is real. The solution is OwnaFarm.**
+| Metric                   | Size         |
+| ------------------------ | ------------ |
+| Global Invoice Financing | $3+ Trillion |
+| Agricultural Finance Gap | $170 Billion |
+| Smallholder Farmers      | 500+ Million |
+| Underbanked Adults       | 1.4 Billion  |
 
 ---
 
-## Next: [Our Solution →](solution.md)
+[Next: Our Solution](solution.md)

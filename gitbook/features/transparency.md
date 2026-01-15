@@ -1,60 +1,38 @@
-# Transparency & Trust
+# Transparency
 
-## Building Confidence Through Visibility
+## Building Trust Through Visibility
 
-OwnaFarm leverages blockchain technology and real-world monitoring to create unprecedented transparency in agricultural financing.
+OwnaFarm uses blockchain technology and real-world monitoring for unprecedented transparency.
 
 ---
 
-## The Transparency Stack
+## Transparency Layers
 
-```
-┌─────────────────────────────────────────┐
-│        🎥 Real-World Monitoring         │
-│          CCTV • Photos • Updates        │
-├─────────────────────────────────────────┤
-│         📊 Off-Chain Analytics          │
-│        Metrics • Reports • Logs         │
-├─────────────────────────────────────────┤
-│          ⛓️ On-Chain Records            │
-│     Transactions • State • History      │
-└─────────────────────────────────────────┘
-```
+| Layer      | Components                   |
+| ---------- | ---------------------------- |
+| On-Chain   | Transactions, state, history |
+| Off-Chain  | Metrics, reports, logs       |
+| Real-World | CCTV, photos, updates        |
 
 ---
 
 ## On-Chain Transparency
 
-### What Lives on Blockchain
+### Publicly Visible Data
 
 | Data                | Visibility | Purpose                |
 | ------------------- | ---------- | ---------------------- |
 | Invoice terms       | Public     | Anyone can verify      |
-| Investment amounts  | Public     | Track funding progress |
+| Investment amounts  | Public     | Track funding          |
 | Investor addresses  | Public     | Ownership verification |
 | Claim status        | Public     | Settlement tracking    |
 | Transaction history | Permanent  | Audit trail            |
 
-### Explorer Links
-
-All smart contract interactions are viewable:
-
-```
-🔍 Mantle Sepolia Explorer
-├── GoldToken transactions
-├── Investment events
-├── Harvest claims
-└── Admin actions
-```
+All smart contract interactions viewable on Mantle Explorer.
 
 ### Immutable Records
 
-Once on-chain, data cannot be:
-
-- ❌ Deleted
-- ❌ Modified
-- ❌ Hidden
-- ❌ Disputed
+Once on-chain, data cannot be deleted, modified, hidden, or disputed.
 
 ---
 
@@ -62,24 +40,12 @@ Once on-chain, data cannot be:
 
 ### CCTV Integration
 
-| Feature                   | Description               |
-| ------------------------- | ------------------------- |
-| **Live Feeds**            | Real-time farm monitoring |
-| **Progress Photos**       | Regular crop updates      |
-| **Location Verification** | Farm GPS coordinates      |
-| **Activity Logs**         | Farm operation records    |
-
-### How It Works
-
-```
-Investor buys seed
-      ↓
-Linked to real farm → CCTV feed accessible
-      ↓
-Watch crop grow → Trust reinforced
-      ↓
-Invoice matures → Verifiable delivery
-```
+| Feature         | Description               |
+| --------------- | ------------------------- |
+| Live feeds      | Real-time farm monitoring |
+| Progress photos | Regular crop updates      |
+| Location        | GPS coordinates           |
+| Activity logs   | Farm operation records    |
 
 ---
 
@@ -87,14 +53,14 @@ Invoice matures → Verifiable delivery
 
 ### Invoice Verification
 
-| Step          | Check                 |
-| ------------- | --------------------- |
-| 1. Submission | Document authenticity |
-| 2. Offtaker   | Buyer legitimacy      |
-| 3. Terms      | Reasonableness        |
-| 4. Approval   | Admin sign-off        |
+| Step       | Check                 |
+| ---------- | --------------------- |
+| Submission | Document authenticity |
+| Offtaker   | Buyer legitimacy      |
+| Terms      | Reasonableness        |
+| Approval   | Admin sign-off        |
 
-### Farmer Verification (KYC)
+### Farmer KYC
 
 | Document         | Verification       |
 | ---------------- | ------------------ |
@@ -105,27 +71,48 @@ Invoice matures → Verifiable delivery
 
 ### Offtaker Verification
 
-| Criteria           | Assessment            |
-| ------------------ | --------------------- |
-| Credit Rating      | Financial stability   |
-| Track Record       | Payment history       |
-| Contract Standards | Terms compatibility   |
-| Legal Standing     | Business registration |
+| Criteria       | Assessment            |
+| -------------- | --------------------- |
+| Credit rating  | Financial stability   |
+| Track record   | Payment history       |
+| Legal standing | Business registration |
 
 ---
 
-## Trust Mechanisms
+## Protections
 
-### Smart Contract Security
+### For Investors
 
-| Feature            | Benefit                    |
-| ------------------ | -------------------------- |
-| Open-source code   | Anyone can audit           |
-| Verified contracts | Explorer confirms bytecode |
-| Standard patterns  | Proven ERC implementations |
-| No admin keys      | Cannot drain funds         |
+**Before Investment:**
 
-### Platform Safeguards
+- Verified offtaker
+- Approved invoice
+- Clear terms
+
+**During Investment:**
+
+- Track growth
+- View farm CCTV
+- Monitor status
+
+**At Maturity:**
+
+- Automatic claim
+- Guaranteed yield from vault
+- Instant settlement
+
+### For Farmers
+
+| Protection     | Implementation          |
+| -------------- | ----------------------- |
+| Fair rates     | Market-driven           |
+| Privacy        | Personal data off-chain |
+| No hidden fees | Upfront disclosure      |
+| Direct payment | Wallet-to-wallet        |
+
+---
+
+## Platform Safeguards
 
 | Mechanism       | Protection                 |
 | --------------- | -------------------------- |
@@ -136,59 +123,4 @@ Invoice matures → Verifiable delivery
 
 ---
 
-## Investor Protections
-
-### Before Investment
-
-- ✅ Verified offtaker
-- ✅ Approved invoice
-- ✅ Clear terms (yield, duration)
-- ✅ Funding progress visible
-
-### During Investment
-
-- ✅ Track plant growth
-- ✅ View farm CCTV
-- ✅ Monitor funding status
-- ✅ Immutable records
-
-### At Maturity
-
-- ✅ Automatic claim availability
-- ✅ Guaranteed yield from vault
-- ✅ Instant settlement
-- ✅ Receipt on-chain
-
----
-
-## Farmer Protections
-
-| Protection              | Implementation                  |
-| ----------------------- | ------------------------------- |
-| **Fair Rates**          | Market-driven, not exploitative |
-| **Privacy**             | Personal data off-chain         |
-| **No Hidden Fees**      | All costs disclosed upfront     |
-| **Direct Disbursement** | Wallet-to-wallet transfer       |
-
----
-
-## Reporting & Analytics
-
-### Available Metrics
-
-| For Investors      | For Farmers      |
-| ------------------ | ---------------- |
-| Portfolio value    | Funding status   |
-| ROI history        | Total raised     |
-| Active investments | Pending invoices |
-| Harvest timeline   | Payment history  |
-
-### Export Options
-
-- Transaction history (CSV)
-- Investment certificates (PDF)
-- Tax documentation
-
----
-
-## Next: [Contract Overview →](../contracts/overview.md)
+[Next: Contract Overview](../contracts/overview.md)

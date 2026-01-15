@@ -3,7 +3,7 @@
 ## Getting Started
 
 - [Introduction](README.md)
-- [The Problem We Solve](introduction/problem.md)
+- [Problem Statement](introduction/problem.md)
 - [Our Solution](introduction/solution.md)
 
 ## Platform Overview
@@ -12,24 +12,24 @@
 - [System Architecture](overview/architecture.md)
 - [User Roles](overview/user-roles.md)
 
-## Key Features
+## Core Features
 
 - [Invoice Tokenization](features/tokenization.md)
 - [Gamification](features/gamification.md)
-- [Transparency & Trust](features/transparency.md)
+- [Transparency](features/transparency.md)
 
 ## Smart Contracts
 
 - [Contract Overview](contracts/overview.md)
 - [Deployed Addresses](contracts/addresses.md)
-- [Contract Functions](contracts/functions.md)
+- [Function Reference](contracts/functions.md)
 
-## Technical Reference
+## Technical Guide
 
 - [Tech Stack](technical/tech-stack.md)
 - [System Flow](technical/system-flow.md)
 - [API Integration](technical/api-integration.md)
 
-## Resources
+## Reference
 
 - [Glossary](resources/glossary.md)

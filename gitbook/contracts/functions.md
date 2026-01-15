@@ -1,25 +1,23 @@
-# Contract Functions
+# Function Reference
 
-## Complete Function Reference
-
-This page documents all callable functions across OwnaFarm smart contracts.
+## Complete Function Documentation
 
 ---
 
 ## GoldToken
 
-Standard ERC-20 token with minting capability.
+Standard ERC-20 with minting capability.
 
 ### Read Functions
 
-| Function                    | Returns | Description               |
-| --------------------------- | ------- | ------------------------- |
-| `balanceOf(address)`        | uint256 | GOLD balance of address   |
-| `allowance(owner, spender)` | uint256 | Approved amount           |
-| `totalSupply()`             | uint256 | Total GOLD in circulation |
-| `name()`                    | string  | "OwnaFarm Gold"           |
-| `symbol()`                  | string  | "GOLD"                    |
-| `decimals()`                | uint8   | 18                        |
+| Function                    | Returns | Description       |
+| --------------------------- | ------- | ----------------- |
+| `balanceOf(address)`        | uint256 | GOLD balance      |
+| `allowance(owner, spender)` | uint256 | Approved amount   |
+| `totalSupply()`             | uint256 | Total circulation |
+| `name()`                    | string  | "OwnaFarm Gold"   |
+| `symbol()`                  | string  | "GOLD"            |
+| `decimals()`                | uint8   | 18                |
 
 ### Write Functions
 
@@ -27,20 +25,20 @@ Standard ERC-20 token with minting capability.
 | -------------------------------- | ------ | ------------------ |
 | `transfer(to, amount)`           | Public | Transfer GOLD      |
 | `approve(spender, amount)`       | Public | Approve spender    |
-| `transferFrom(from, to, amount)` | Public | Transfer on behalf |
+| `transferFrom(from, to, amount)` | Public | Delegated transfer |
 | `mint(to, amount)`               | Owner  | Mint new GOLD      |
 
 ---
 
 ## GoldFaucet
 
-Token distribution for testnet users.
+Testnet token distribution.
 
 ### Read Functions
 
 | Function                      | Returns | Description              |
 | ----------------------------- | ------- | ------------------------ |
-| `canClaim(address)`           | bool    | True if user can claim   |
+| `canClaim(address)`           | bool    | Claim eligibility        |
 | `timeUntilNextClaim(address)` | uint256 | Seconds until next claim |
 | `claimAmount()`               | uint256 | GOLD per claim           |
 | `cooldownTime()`              | uint256 | Seconds between claims   |
@@ -59,82 +57,85 @@ Token distribution for testnet users.
 
 ## OwnaFarmNFT
 
-Core contract for invoices and investments.
+Core invoice and investment contract.
 
-### Invoice Functions
-
-#### Submit Invoice
+### Submit Invoice
 
 ```solidity
 function submitInvoice(
-    bytes32 offtakerId,   // Buyer identifier
-    uint128 targetFund,   // Amount to raise (18 decimals)
-    uint16 yieldBps,      // Yield in basis points
-    uint32 duration       // Lock period in seconds
+    bytes32 offtakerId,
+    uint128 targetFund,
+    uint16 yieldBps,
+    uint32 duration
 ) external returns (uint256 tokenId)
 ```
 
-| Parameter  | Example                   | Description              |
-| ---------- | ------------------------- | ------------------------ |
-| offtakerId | `0x4f46465441...`         | bytes32 hash of buyer ID |
-| targetFund | `10000000000000000000000` | 10,000 GOLD              |
-| yieldBps   | `1500`                    | 15% yield                |
-| duration   | `2592000`                 | 30 days in seconds       |
+| Parameter  | Example   | Description           |
+| ---------- | --------- | --------------------- |
+| offtakerId | 0x4f46... | Buyer identifier hash |
+| targetFund | 10000e18  | 10,000 GOLD           |
+| yieldBps   | 1500      | 15% yield             |
+| duration   | 2592000   | 30 days               |
 
-#### Admin Functions
+### Invest
+
+```solidity
+function invest(uint256 tokenId, uint128 amount) external
+```
+
+**Requirements:**
+
+- Invoice status is Approved
+- GOLD spending approved
+- Amount within target
+
+### Harvest
+
+```solidity
+function harvest(uint256 investmentId) external
+```
+
+**Requirements:**
+
+- Investment exists
+- Not already claimed
+- Duration passed
+
+### Admin Functions
 
 | Function                  | Access | Description            |
 | ------------------------- | ------ | ---------------------- |
 | `approveInvoice(tokenId)` | Admin  | Approve for investment |
-| `rejectInvoice(tokenId)`  | Admin  | Reject invoice         |
-
-### Investment Functions
-
-#### Invest in Invoice
-
-```solidity
-function invest(
-    uint256 tokenId,  // Invoice ID
-    uint128 amount    // GOLD amount (18 decimals)
-) external
-```
-
-**Prerequisites**:
-
-1. Invoice status must be `Approved`
-2. Investor must have approved GOLD spending
-3. Amount must not exceed remaining target
-
-#### Harvest Returns
-
-```solidity
-function harvest(
-    uint256 investmentId  // Index of investment
-) external
-```
-
-**Prerequisites**:
-
-1. Investment must exist
-2. Not already claimed
-3. Duration period must have passed
+| `rejectInvoice(tokenId)`  | Admin  | Reject submission      |
 
 ### View Functions
 
-| Function                              | Parameters       | Returns             |
-| ------------------------------------- | ---------------- | ------------------- |
-| `invoices(tokenId)`                   | uint256          | Invoice struct      |
-| `getInvestment(investor, id)`         | address, uint256 | Investment struct   |
-| `investmentCount(investor)`           | address          | uint256             |
-| `getPendingInvoices(offset, limit)`   | uint256, uint256 | Invoice[]           |
-| `getPendingCount()`                   | -                | uint256             |
-| `getAvailableInvoices(offset, limit)` | uint256, uint256 | Invoice[]           |
-| `getAvailableCount()`                 | -                | uint256             |
-| `balanceOf(account, id)`              | address, uint256 | uint256 (NFT count) |
+| Function                              | Description            |
+| ------------------------------------- | ---------------------- |
+| `invoices(tokenId)`                   | Get invoice details    |
+| `getInvestment(investor, id)`         | Get investment details |
+| `investmentCount(investor)`           | Count investments      |
+| `getPendingInvoices(offset, limit)`   | List pending           |
+| `getAvailableInvoices(offset, limit)` | List available         |
 
-### Data Structures
+---
 
-**Invoice Struct**:
+## OwnaFarmVault
+
+Yield reserve management.
+
+| Function                           | Access  | Description             |
+| ---------------------------------- | ------- | ----------------------- |
+| `setFarmNFT(address)`              | Admin   | Set NFT contract (once) |
+| `depositYield(amount)`             | Admin   | Add yield reserve       |
+| `withdrawYield(to, amount)`        | FarmNFT | Pay investor yield      |
+| `emergencyWithdraw(token, amount)` | Owner   | Emergency recovery      |
+
+---
+
+## Data Structures
+
+### Invoice
 
 ```solidity
 struct Invoice {
@@ -149,7 +150,7 @@ struct Invoice {
 }
 ```
 
-**Investment Struct**:
+### Investment
 
 ```solidity
 struct Investment {
@@ -162,63 +163,37 @@ struct Investment {
 
 ---
 
-## OwnaFarmVault
-
-Yield reserve management.
-
-### Write Functions
-
-| Function                           | Access     | Description            |
-| ---------------------------------- | ---------- | ---------------------- |
-| `setFarmNFT(address)`              | Admin      | Set OwnaFarmNFT (once) |
-| `depositYield(amount)`             | Admin      | Add yield reserve      |
-| `withdrawYield(to, amount)`        | FarmNFT    | Pay investor yield     |
-| `emergencyWithdraw(token, amount)` | SuperAdmin | Emergency recovery     |
-
----
-
 ## Common Patterns
 
 ### Approve Before Invest
 
 ```javascript
-// Step 1: Approve GOLD spending
-await goldToken.approve(ownaFarmNFT.address, amount);
-
-// Step 2: Invest
+await goldToken.approve(nftAddress, amount);
 await ownaFarmNFT.invest(tokenId, amount);
 ```
 
-### Check If Can Harvest
+### Check Harvest Eligibility
 
 ```javascript
-const investment = await ownaFarmNFT.getInvestment(investor, investmentId);
-const invoice = await ownaFarmNFT.invoices(investment.tokenId);
-
-const maturityTime = investment.investedAt + invoice.duration;
-const canHarvest = Date.now() / 1000 >= maturityTime && !investment.claimed;
-```
-
-### Calculate Yield
-
-```javascript
-const yieldAmount = (principal * yieldBps) / 10000n;
-const totalReturn = principal + yieldAmount;
+const investment = await nft.getInvestment(investor, id);
+const invoice = await nft.invoices(investment.tokenId);
+const maturity = investment.investedAt + invoice.duration;
+const canHarvest = Date.now() / 1000 >= maturity && !investment.claimed;
 ```
 
 ---
 
 ## Error Codes
 
-| Error                   | Cause                        |
-| ----------------------- | ---------------------------- |
-| `InsufficientBalance`   | Not enough GOLD              |
-| `InsufficientAllowance` | Need to approve first        |
-| `InvalidStatus`         | Invoice not in correct state |
-| `AlreadyClaimed`        | Investment already harvested |
-| `NotMature`             | Duration not passed          |
-| `AmountExceedsTarget`   | Investment too large         |
+| Error                 | Cause                 |
+| --------------------- | --------------------- |
+| InsufficientBalance   | Not enough GOLD       |
+| InsufficientAllowance | Need to approve first |
+| InvoiceNotApproved    | Wrong invoice status  |
+| AlreadyClaimed        | Already harvested     |
+| NotMature             | Duration not passed   |
+| ExceedsTarget         | Investment too large  |
 
 ---
 
-## Next: [Tech Stack →](../technical/tech-stack.md)
+[Next: Tech Stack](../technical/tech-stack.md)

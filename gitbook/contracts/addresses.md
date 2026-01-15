@@ -2,28 +2,27 @@
 
 ## Mantle Sepolia Testnet
 
-> **Chain ID**: 5003  
-> **Explorer**: https://sepolia.mantlescan.xyz
+**Chain ID:** 5003  
+**Explorer:** https://sepolia.mantlescan.xyz
 
 ---
 
 ## Contract Addresses
 
-| Contract          | Address                                      | Explorer                                                                                    |
-| ----------------- | -------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| **GoldToken**     | `0x787c8616d9b8Ccdca3B2b930183813828291dA9c` | [View ↗](https://sepolia.mantlescan.xyz/address/0x787c8616d9b8Ccdca3B2b930183813828291dA9c) |
-| **GoldFaucet**    | `0x5644F393a2480BE5E63731C30fCa81F9e80277a7` | [View ↗](https://sepolia.mantlescan.xyz/address/0x5644F393a2480BE5E63731C30fCa81F9e80277a7) |
-| **OwnaFarmNFT**   | `0xC51601dde25775bA2740EE14D633FA54e12Ef6C7` | [View ↗](https://sepolia.mantlescan.xyz/address/0xC51601dde25775bA2740EE14D633FA54e12Ef6C7) |
-| **OwnaFarmVault** | `0x3b561Df673F08A566A09fEd718f5bdB8018C2CDa` | [View ↗](https://sepolia.mantlescan.xyz/address/0x3b561Df673F08A566A09fEd718f5bdB8018C2CDa) |
+| Contract      | Address                                                                                                                           |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| GoldToken     | [`0x787c8616d9b8Ccdca3B2b930183813828291dA9c`](https://sepolia.mantlescan.xyz/address/0x787c8616d9b8Ccdca3B2b930183813828291dA9c) |
+| GoldFaucet    | [`0x5644F393a2480BE5E63731C30fCa81F9e80277a7`](https://sepolia.mantlescan.xyz/address/0x5644F393a2480BE5E63731C30fCa81F9e80277a7) |
+| OwnaFarmNFT   | [`0xC51601dde25775bA2740EE14D633FA54e12Ef6C7`](https://sepolia.mantlescan.xyz/address/0xC51601dde25775bA2740EE14D633FA54e12Ef6C7) |
+| OwnaFarmVault | [`0x3b561Df673F08A566A09fEd718f5bdB8018C2CDa`](https://sepolia.mantlescan.xyz/address/0x3b561Df673F08A566A09fEd718f5bdB8018C2CDa) |
 
 ---
 
-## Quick Copy
+## Integration Constants
 
-### For Frontend Integration
+### JavaScript/TypeScript
 
 ```javascript
-// Contract Addresses - Mantle Sepolia
 const CONTRACTS = {
   GOLD_TOKEN: "0x787c8616d9b8Ccdca3B2b930183813828291dA9c",
   GOLD_FAUCET: "0x5644F393a2480BE5E63731C30fCa81F9e80277a7",
@@ -32,14 +31,13 @@ const CONTRACTS = {
 };
 ```
 
-### For Backend Integration
+### Go
 
 ```go
-// Contract Addresses - Mantle Sepolia
 const (
-    GoldTokenAddress    = "0x787c8616d9b8Ccdca3B2b930183813828291dA9c"
-    GoldFaucetAddress   = "0x5644F393a2480BE5E63731C30fCa81F9e80277a7"
-    OwnaFarmNFTAddress  = "0xC51601dde25775bA2740EE14D633FA54e12Ef6C7"
+    GoldTokenAddress     = "0x787c8616d9b8Ccdca3B2b930183813828291dA9c"
+    GoldFaucetAddress    = "0x5644F393a2480BE5E63731C30fCa81F9e80277a7"
+    OwnaFarmNFTAddress   = "0xC51601dde25775bA2740EE14D633FA54e12Ef6C7"
     OwnaFarmVaultAddress = "0x3b561Df673F08A566A09fEd718f5bdB8018C2CDa"
 )
 ```
@@ -48,21 +46,21 @@ const (
 
 ## Network Configuration
 
-### RPC Endpoints
+### RPC Endpoint
 
-| Network        | RPC URL                          |
-| -------------- | -------------------------------- |
-| Mantle Sepolia | `https://rpc.sepolia.mantle.xyz` |
+```
+https://rpc.sepolia.mantle.xyz
+```
 
-### Add to MetaMask
+### MetaMask Configuration
 
-| Setting         | Value                            |
-| --------------- | -------------------------------- |
-| Network Name    | Mantle Sepolia Testnet           |
-| RPC URL         | `https://rpc.sepolia.mantle.xyz` |
-| Chain ID        | `5003`                           |
-| Currency Symbol | `MNT`                            |
-| Block Explorer  | `https://sepolia.mantlescan.xyz` |
+| Setting      | Value                          |
+| ------------ | ------------------------------ |
+| Network Name | Mantle Sepolia Testnet         |
+| RPC URL      | https://rpc.sepolia.mantle.xyz |
+| Chain ID     | 5003                           |
+| Symbol       | MNT                            |
+| Explorer     | https://sepolia.mantlescan.xyz |
 
 ---
 
@@ -79,39 +77,31 @@ const (
 
 ### Decimal Conversion
 
-| Human Readable | Wei (Raw Value)            |
-| -------------- | -------------------------- |
-| 1 GOLD         | `1000000000000000000`      |
-| 100 GOLD       | `100000000000000000000`    |
-| 1,000 GOLD     | `1000000000000000000000`   |
-| 10,000 GOLD    | `10000000000000000000000`  |
-| 100,000 GOLD   | `100000000000000000000000` |
+| Human       | Wei                     |
+| ----------- | ----------------------- |
+| 1 GOLD      | 1000000000000000000     |
+| 100 GOLD    | 100000000000000000000   |
+| 10,000 GOLD | 10000000000000000000000 |
 
 ---
 
 ## Verification Status
 
-All contracts are verified on Mantle Sepolia Explorer:
+All contracts verified on Mantle Sepolia Explorer with published source code.
 
-| Contract      | Verified | Source Code |
-| ------------- | -------- | ----------- |
-| GoldToken     | ✅       | Published   |
-| GoldFaucet    | ✅       | Published   |
-| OwnaFarmNFT   | ✅       | Published   |
-| OwnaFarmVault | ✅       | Published   |
+| Contract      | Verified |
+| ------------- | -------- |
+| GoldToken     | Yes      |
+| GoldFaucet    | Yes      |
+| OwnaFarmNFT   | Yes      |
+| OwnaFarmVault | Yes      |
 
 ---
 
 ## Mainnet Deployment
 
-> 🚧 **Coming Soon**
->
-> Mainnet deployment will be announced after:
->
-> - Security audit completion
-> - Beta testing conclusion
-> - Community review period
+Mainnet deployment pending after security audit and beta testing.
 
 ---
 
-## Next: [Contract Functions →](functions.md)
+[Next: Function Reference](functions.md)
