@@ -25,6 +25,7 @@ graph LR
 | **Pitch Deck**       | [View on Canva](https://www.canva.com/design/DAG-cxaLAeI/dgDXD1_EuUviUj2qUUMg4Q/view) |
 | **Demo Video**       | [Watch on YouTube](https://youtu.be/D8RmfS-OOtw?si=Pl5rLKJDHvZ7mzvr)                  |
 | **Smart Contracts**  | [Mantle Sepolia Explorer](https://sepolia.mantlescan.xyz)                             |
+| **Github**           | [OwnaFarm Github Organization](https://github.com/OwnaFarm)                           |
 
 ---
 
@@ -104,17 +105,6 @@ Deployed on **Mantle Sepolia Testnet** (Chain ID: 5003)
 - [Gamification](features/gamification.md)
 - [Transparency](features/transparency.md)
 - [API Reference](technical/api-integration.md)
-
----
-
-## Important Links
-
-| Resource                | URL                                                                  |
-| ----------------------- | -------------------------------------------------------------------- |
-| **Pitch Deck**          | https://www.canva.com/design/DAG-cxaLAeI/dgDXD1_EuUviUj2qUUMg4Q/view |
-| **Live Application**    | https://ownafarm-farmer.vercel.app/                                  |
-| **Demo Video**          | https://youtu.be/D8RmfS-OOtw?si=Pl5rLKJDHvZ7mzvr                     |
-| **GitHub Organization** | https://github.com/OwnaFarm                                          |
 
 ---
 

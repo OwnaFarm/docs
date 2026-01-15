@@ -1,12 +1,5 @@
 # Table of Contents
 
-## Quick Links
-
-- [Live Application](https://ownafarm-farmer.vercel.app/)
-- [Pitch Deck](https://www.canva.com/design/DAG-cxaLAeI/dgDXD1_EuUviUj2qUUMg4Q/view)
-- [Demo Video](https://youtu.be/D8RmfS-OOtw?si=Pl5rLKJDHvZ7mzvr)
-- [Mantle Explorer](https://sepolia.mantlescan.xyz)
-
 ## Getting Started
 
 - [Introduction](README.md)
@@ -36,6 +29,12 @@
 - [Tech Stack](technical/tech-stack.md)
 - [System Flow](technical/system-flow.md)
 - [API Integration](technical/api-integration.md)
+
+## Quick Links
+
+- [Live Application](https://ownafarm-farmer.vercel.app/)
+- [Pitch Deck](https://www.canva.com/design/DAG-cxaLAeI/dgDXD1_EuUviUj2qUUMg4Q/view)
+- [Demo Video](https://youtu.be/D8RmfS-OOtw?si=Pl5rLKJDHvZ7mzvr)
 
 ## Reference
 
